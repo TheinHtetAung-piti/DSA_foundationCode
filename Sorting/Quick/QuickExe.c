@@ -20,6 +20,7 @@ int partition(int arr[],int start,int end)
         }
 
         swap(&arr[i+1],&arr[end]);
+
         return i+1;
         
 }
@@ -39,7 +40,7 @@ int main()
         printf("Enter %d element : ",size);
         for (int i = 0; i < size; i++)
         {
-                scanf("%d",arr[i]);
+                scanf("%d",&arr[i]);
         }
         
         quickSort(arr,0,size);

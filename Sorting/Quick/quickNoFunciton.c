@@ -37,6 +37,7 @@ int partition(int arr[], int low, int high, int n)
     swap(&arr[i + 1], &arr[high]);
     printArray(arr, n); // print after pivot swap
 
+    printf("\nreturn i : %d\n", i + 1);
     return i + 1;
 }
 

@@ -1,30 +1,46 @@
 #include <stdio.h>
-
-// Function to perform binary search on a sorted array
-int binarySearch(int arr[], int n, int target) {
-        int left = 0, right = n - 1;
-        while (left <= right) {
-                int mid = left + (right - left) / 2;
-                if (arr[mid] == target)
-                        return mid; // Target found at index mid
-                else if (arr[mid] < target)
-                        left = mid + 1; // Search right half
-                else
-                        right = mid - 1; // Search left half
+int main()
+{
+        int size, start, end, found = 0, mid;
+        printf("Enter size of array : ");
+        scanf("%d", &size);
+        int arr[size];
+        printf("Enter array %d element : ", size);
+        for (int i = 0; i < size; i++)
+        {
+                scanf("%d", &arr[i]);
         }
-        return -1; // Target not found
-}
 
-int main() {
-        int arr[] = {2, 4, 7, 10, 23, 38, 56, 72, 91};
-        int n = sizeof(arr) / sizeof(arr[0]);
-        int target = 23;
+        printf("\nDisplay : ");
+        for (int i = 0; i < size; i++)
+                printf("%4d", arr[i]);
 
-        int result = binarySearch(arr, n, target);
-        if (result != -1)
-                printf("Element %d found at index %d\n", target, result);
-        else
-                printf("Element %d not found in the array\n", target);
+        printf("\n");
 
+        printf("Enter target value : ");
+        int target;
+        scanf("%d", &target);
+
+        int start = 0, end = size - 1, mid, found = 0;
+        while (start <= end)
+        {
+                mid = (start + end) / 2;
+                if (arr[mid] == target)
+                {
+                        printf("Element found at %d index !", mid);
+                        found = 1;
+                        break;
+                }
+                else if (arr[mid] > target)
+                {
+                        end = mid - 1;
+                }
+                else
+                {
+                        start = mid + 1;
+                }
+        }
+        if (!found)
+                printf("Element not found!\n");
         return 0;
 }
